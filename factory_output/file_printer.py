@@ -1,6 +1,7 @@
 import datetime
 import errno
 import os
+from pathlib import Path
 
 from factory_output.printer import Printer
 
@@ -10,7 +11,7 @@ class FilePrinter(Printer):
         pass
 
     def print(self, data):
-        path = "/home/hclareth7/Desktop/FindStatsApp"
+        path = f"{str(Path.home())}/Desktop/FindStatsApp"
         FilePrinter._mkdir_p(path)
         now = datetime.datetime.now()
         file_name = f"{path}/{str(now.strftime('%Y_%m_%d_%HH_%MM_%SS'))}.txt"
